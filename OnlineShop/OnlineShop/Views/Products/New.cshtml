@@ -1,0 +1,39 @@
+﻿
+<h2>Adaugare articol</h2>
+<form method="post" action="/Products/New">
+
+    <label>Titlu produsului</label>
+    <input type="text" name="Title" />
+    <br />
+
+    <label>Descrierea produsului</label>
+    <textarea name="Description"></textarea>
+    <br />
+
+    <label>Ratingul produsului</label>
+    <input type="text" name="Rating" />
+    <br />
+
+    <br />
+    <label>Pretul produsului</label>
+    <input type="text" name="Price" />
+    <br />
+    <br />
+
+    <label>Selectati categoria</label>
+
+    @* name o sa fie CategoryId si ce este in value se paseaza catre server pe cheia CategoryId
+        name este atributul pe care il trimite catre controller prin post
+        iar denumirea categoriei este valoarea afisata in dropdown *@
+
+    <select name="CategoryId">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <option value="@category.CategoryId">@category.CategoryName</option>
+        }
+    </select>
+    <br />
+    <button type="submit">Adauga articol</button>
+</form>
+
+

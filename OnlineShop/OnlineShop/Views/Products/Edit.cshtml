@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<form method="post" action="/Products/Edit/@ViewBag.Product.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <br />
+    <label>Titlul produsului</label>
+    <br />
+    <input type="text" name="Title" value="@ViewBag.Product.Title" />
+    <br /><br />
+    <label>Descrierea produsului</label>
+    <br />
+    <input type="text" name="Content" value="@ViewBag.Product.Description" />
+    <br /><br />
+
+    <br />
+    <label>Ratingul produsului</label>
+    <input type="text" name="Rating" value="@ViewBag.Product.Rating" />
+    <br /><br />
+
+    <br />
+    <label>Pretul produsului</label>
+    <input type="text" name="Price" value="@ViewBag.Product.Price" />
+    <br /><br />
+
+    <br />
+    <select name="CategoryId">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <option @{ if (category.CategoryId == ViewBag.Category.CategoryId) { @: selected="selected"
+                    } }
+                    value="@category.CategoryId">
+                @category.CategoryName
+            </option>
+        }
+    </select>
+    <br />
+    <button type="submit">Modifica articol</button>
+</form>
+
+

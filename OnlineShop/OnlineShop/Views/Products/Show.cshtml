@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h1>Afisare articol</h1>
+<h2>@ViewBag.Product.Title</h2>
+<p>@ViewBag.Product.Description</p>
+
+<p>Pretul produsului: @ViewBag.Product.Price</p>
+<p>Rating: @ViewBag.Product.Rating</p>
+
+
+
+<p>Categorie: @ViewBag.Category.CategoryName</p> 
+
+
+<a href="/Products/Edit/@ViewBag.Product.Id">Modifica produsul</a>
+
+
+<form method="post" action="/Products/Delete/@ViewBag.Product.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit">Sterge articol</button>
+</form> 
+
+
+<hr />
+<a href="/Products/Index">Inapoi la articole</a>
+<br />
+<a href="/Products/New">Adauga articol</a>
+<br /> 
+
+
+
+
